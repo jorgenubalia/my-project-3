@@ -1,0 +1,27 @@
+<h1>Listing opportunities</h1>
+
+<%= link_to 'New opportunity', new_opportunity_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Amount</th>
+    <th>CloseDate</th>
+    <th>StageName</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @opportunities.each do |opportunity| %>
+    <tr>
+      <td><%= opportunity.name %></td>
+      <td><%= opportunity.amount %></td>
+      <td><%= opportunity.closedate %></td>
+      <td><%= opportunity.stagename %></td>
+      <td><%= link_to 'Show', opportunity_path(opportunity) %></td>
+      <td><%= link_to 'Edit', edit_opportunity_path(opportunity) %></td>
+      <td><%= link_to 'Delete', opportunity_path(opportunity),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
