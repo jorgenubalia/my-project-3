@@ -1,10 +1,5 @@
 class OpportunitiesController < ApplicationController
 
-private
-def opportunity_params
-  params.require(:opportunity).permit(:name, :description, :amount, :closedate, :stagename)
-end
-
 def create
   @opportunity = Opportunity.new(opportunity_params)
 
@@ -42,6 +37,11 @@ def destroy
   @opportunity.destroy
  
   redirect_to opportunities_path
+end
+
+private
+def opportunity_params
+  params.require(:opportunity).permit(:name, :description, :amount, :closedate, :stagename)
 end
 
 end
