@@ -23,7 +23,7 @@
 
   <p>
     <%= f.label :stagename %><br>
-    <%= f.text_field :stagename %>
+    <%= select(:opportunity, :stagename, OpportunityStage.all.collect {|os| os.masterlabel}) %>
   </p>
 
   <p>
